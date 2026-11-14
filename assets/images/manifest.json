@@ -1,0 +1,226 @@
+[
+  {
+    "id": "sunset-facade",
+    "file": "sunset-facade.jpg",
+    "category": "exterior",
+    "alt": "Arched hotel facade at sunset",
+    "tags": [
+      "warm",
+      "architecture",
+      "golden-hour"
+    ],
+    "focal": [
+      0.5,
+      0.55
+    ],
+    "license": "CC0 1.0 - self-created (scripts/make_assets.py)"
+  },
+  {
+    "id": "pool-morning",
+    "file": "pool-morning.jpg",
+    "category": "leisure",
+    "alt": "Turquoise pool with loungers and a coral umbrella",
+    "tags": [
+      "cool",
+      "pool",
+      "summer"
+    ],
+    "focal": [
+      0.5,
+      0.6
+    ],
+    "license": "CC0 1.0 - self-created (scripts/make_assets.py)"
+  },
+  {
+    "id": "breakfast-table",
+    "file": "breakfast-table.jpg",
+    "category": "food",
+    "alt": "Breakfast table with croissant, oranges and coffee",
+    "tags": [
+      "warm",
+      "breakfast",
+      "table"
+    ],
+    "focal": [
+      0.45,
+      0.4
+    ],
+    "license": "CC0 1.0 - self-created (scripts/make_assets.py)"
+  },
+  {
+    "id": "room-linen",
+    "file": "room-linen.jpg",
+    "category": "interior",
+    "alt": "Guest room with white linen and an arched window",
+    "tags": [
+      "cool",
+      "room",
+      "calm"
+    ],
+    "focal": [
+      0.5,
+      0.55
+    ],
+    "license": "CC0 1.0 - self-created (scripts/make_assets.py)"
+  },
+  {
+    "id": "lobby-arches",
+    "file": "lobby-arches.jpg",
+    "category": "interior",
+    "alt": "Receding sandstone arches in the lobby",
+    "tags": [
+      "warm",
+      "architecture",
+      "symmetry"
+    ],
+    "focal": [
+      0.5,
+      0.5
+    ],
+    "license": "CC0 1.0 - self-created (scripts/make_assets.py)"
+  },
+  {
+    "id": "terrace-dusk",
+    "file": "terrace-dusk.jpg",
+    "category": "exterior",
+    "alt": "Terrace at dusk with string lights and a candle",
+    "tags": [
+      "cool",
+      "evening",
+      "lights"
+    ],
+    "focal": [
+      0.5,
+      0.7
+    ],
+    "license": "CC0 1.0 - self-created (scripts/make_assets.py)"
+  },
+  {
+    "id": "cocktail-bar",
+    "file": "cocktail-bar.jpg",
+    "category": "drink",
+    "alt": "Amber cocktail in a coupe glass at the bar",
+    "tags": [
+      "dark",
+      "evening",
+      "drink"
+    ],
+    "focal": [
+      0.5,
+      0.5
+    ],
+    "license": "CC0 1.0 - self-created (scripts/make_assets.py)"
+  },
+  {
+    "id": "palm-shadow",
+    "file": "palm-shadow.jpg",
+    "category": "detail",
+    "alt": "Palm shadows across a plaster wall",
+    "tags": [
+      "warm",
+      "texture",
+      "shadow"
+    ],
+    "focal": [
+      0.7,
+      0.6
+    ],
+    "license": "CC0 1.0 - self-created (scripts/make_assets.py)"
+  },
+  {
+    "id": "spa-stones",
+    "file": "spa-stones.jpg",
+    "category": "wellness",
+    "alt": "Stacked stones with eucalyptus on a white towel",
+    "tags": [
+      "neutral",
+      "spa",
+      "calm"
+    ],
+    "focal": [
+      0.5,
+      0.55
+    ],
+    "license": "CC0 1.0 - self-created (scripts/make_assets.py)"
+  },
+  {
+    "id": "coffee-detail",
+    "file": "coffee-detail.jpg",
+    "category": "food",
+    "alt": "Latte art from above on a linen table",
+    "tags": [
+      "warm",
+      "coffee",
+      "detail"
+    ],
+    "focal": [
+      0.5,
+      0.5
+    ],
+    "license": "CC0 1.0 - self-created (scripts/make_assets.py)"
+  },
+  {
+    "id": "tile-door",
+    "file": "tile-door.jpg",
+    "category": "detail",
+    "alt": "Coral arched door framed by green and gold tiles",
+    "tags": [
+      "cool",
+      "colour",
+      "tiles"
+    ],
+    "focal": [
+      0.5,
+      0.6
+    ],
+    "license": "CC0 1.0 - self-created (scripts/make_assets.py)"
+  },
+  {
+    "id": "beach-cabana",
+    "file": "beach-cabana.jpg",
+    "category": "exterior",
+    "alt": "Striped coral cabana on the sand",
+    "tags": [
+      "warm",
+      "beach",
+      "stripes"
+    ],
+    "focal": [
+      0.5,
+      0.4
+    ],
+    "license": "CC0 1.0 - self-created (scripts/make_assets.py)"
+  },
+  {
+    "id": "courtyard-fountain",
+    "file": "courtyard-fountain.jpg",
+    "category": "exterior",
+    "alt": "Sunlit courtyard with a tiered fountain",
+    "tags": [
+      "warm",
+      "courtyard",
+      "plants"
+    ],
+    "focal": [
+      0.5,
+      0.65
+    ],
+    "license": "CC0 1.0 - self-created (scripts/make_assets.py)"
+  },
+  {
+    "id": "rooftop-night",
+    "file": "rooftop-night.jpg",
+    "category": "exterior",
+    "alt": "Rooftop view over a lit skyline at night",
+    "tags": [
+      "dark",
+      "evening",
+      "city"
+    ],
+    "focal": [
+      0.5,
+      0.5
+    ],
+    "license": "CC0 1.0 - self-created (scripts/make_assets.py)"
+  }
+]

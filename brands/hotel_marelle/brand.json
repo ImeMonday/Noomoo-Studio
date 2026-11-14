@@ -1,0 +1,23 @@
+{
+  "name": "Hôtel Marelle",
+  "tagline": "Sea-salt mornings, slow evenings.",
+  "handle": "@hotelmarelle",
+  "mark": "arch",
+  "palette": {
+    "ink": "#0B1530",
+    "paper": "#F6F7F2",
+    "primary": "#1D3FBB",
+    "accent": "#F4D35E",
+    "soft": "#F4B6C2"
+  },
+  "tile_backgrounds": ["primary", "soft", "accent"],
+  "fonts": {
+    "display": {"family": "Young Serif", "weight": 400, "file": "YoungSerif-Regular.ttf"},
+    "body": {"family": "Lato", "weight": 400, "file": "Lato-Regular.ttf"},
+    "strong": {"family": "Lato", "weight": 700, "file": "Lato-Bold.ttf"}
+  },
+  "voice": {
+    "adjectives": ["warm", "sunlit", "unhurried", "a little witty"],
+    "avoid": ["luxury", "world-class", "unforgettable", "exclusive"]
+  }
+}

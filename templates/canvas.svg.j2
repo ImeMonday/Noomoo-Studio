@@ -1,0 +1,31 @@
+{% import "_macros.svg.j2" as m %}
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 {{ c.w }} {{ c.h }}" width="{{ c.w }}" height="{{ c.h }}" data-kind="{{ c.kind }}" data-template="{{ c.template }}" role="img" aria-label="{{ c.title }}">
+<title>{{ c.title }}</title>
+<defs>
+<style>
+{% for f in fonts %}
+@font-face { font-family: '{{ f.family }}'; font-weight: {{ f.weight }}; src: url('{{ font_base }}{{ f.file }}') format('truetype'); }
+{% endfor %}
+</style>
+{% for d in c.defs %}
+{% if d.t == 'grad' %}
+<linearGradient id="{{ d.id }}" x1="0" y1="0" x2="0" y2="1">{% for o, a in d.stops %}<stop offset="{{ o }}" stop-color="{{ d.color }}" stop-opacity="{{ a }}"/>{% endfor %}</linearGradient>
+{% elif d.t == 'clip' %}
+<clipPath id="{{ d.id }}"><path d="{{ d.d }}"/></clipPath>
+{% endif %}
+{% endfor %}
+</defs>
+{% for it in c["items"] %}
+{% if it.t == 'image' %}
+<image id="{{ it.id }}" x="{{ it.x }}" y="{{ it.y }}" width="{{ it.w }}" height="{{ it.h }}" preserveAspectRatio="xMidYMid slice"{% if it.get('clip') %} clip-path="url(#{{ it.clip }})"{% endif %} xlink:href="{{ it.href }}"/>
+{% elif it.t == 'rect' %}
+<rect id="{{ it.id }}" x="{{ it.x }}" y="{{ it.y }}" width="{{ it.w }}" height="{{ it.h }}" rx="{{ it.rx }}" fill="{{ it.fill }}"/>
+{% elif it.t == 'circle' %}
+<circle id="{{ it.id }}" cx="{{ it.cx }}" cy="{{ it.cy }}" r="{{ it.r }}" fill="{{ it.fill }}"/>
+{% elif it.t == 'text' %}
+{{ m.text(it.b) }}
+{% elif it.t == 'mark' %}
+{{ m.mark(it) }}
+{% endif %}
+{% endfor %}
+</svg>

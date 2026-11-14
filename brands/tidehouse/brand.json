@@ -1,0 +1,23 @@
+{
+  "name": "Tidehouse",
+  "tagline": "Beach club by day, rooftop by night.",
+  "handle": "@tidehouse.club",
+  "mark": "wave",
+  "palette": {
+    "ink": "#062C30",
+    "paper": "#F2FAF8",
+    "primary": "#00A6A6",
+    "accent": "#FFC857",
+    "soft": "#BFE9E2"
+  },
+  "tile_backgrounds": ["accent", "primary", "soft"],
+  "fonts": {
+    "display": {"family": "Bebas Neue", "weight": 400, "file": "BebasNeue-Regular.ttf"},
+    "body": {"family": "Poppins", "weight": 500, "file": "Poppins-Medium.ttf"},
+    "strong": {"family": "Poppins", "weight": 600, "file": "Poppins-SemiBold.ttf"}
+  },
+  "voice": {
+    "adjectives": ["loud", "sun-baked", "playful", "direct"],
+    "avoid": ["luxury", "world-class", "elite", "exclusive"]
+  }
+}

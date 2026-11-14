@@ -1,0 +1,29 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Studio: build all brands",
+      "type": "debugpy",
+      "request": "launch",
+      "module": "studio",
+      "args": ["build", "--all"],
+      "console": "integratedTerminal"
+    },
+    {
+      "name": "Studio: web UI (http://127.0.0.1:5000)",
+      "type": "debugpy",
+      "request": "launch",
+      "module": "studio",
+      "args": ["serve"],
+      "console": "integratedTerminal"
+    },
+    {
+      "name": "Pytest",
+      "type": "debugpy",
+      "request": "launch",
+      "module": "pytest",
+      "args": ["-q"],
+      "console": "integratedTerminal"
+    }
+  ]
+}

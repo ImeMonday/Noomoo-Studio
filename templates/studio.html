@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Noomoo Studio</title>
+<link rel="icon" href="data:,">
+<style>
+:root { --bg:#101216; --panel:#181b21; --line:#292d37; --text:#e8eaed; --muted:#8e95a3; --ui:#f4d35e; --ui-ink:#0b1530; --radius:10px; }
+* { box-sizing: border-box; }
+body { margin:0; background:var(--bg); color:var(--text); font:15px/1.45 system-ui,-apple-system,"Segoe UI",sans-serif; }
+button, select, input, textarea { font:inherit; color:inherit; }
+:focus-visible { outline:2px solid var(--ui); outline-offset:2px; }
+.bar { display:flex; flex-wrap:wrap; gap:12px; align-items:center; padding:14px 24px; border-bottom:1px solid var(--line); background:var(--panel); position:sticky; top:0; z-index:5; }
+.bar h1 { margin:0 12px 0 0; font-size:22px; font-weight:400; letter-spacing:.2px; }
+.bar .grow { flex:1; }
+select, .btn { background:#21252d; border:1px solid var(--line); border-radius:8px; padding:8px 14px; cursor:pointer; }
+.btn:hover, select:hover { border-color:#3b4150; }
+.btn.primary { background:var(--ui); color:var(--ui-ink); border-color:var(--ui); font-weight:600; }
+.status { color:var(--muted); font-size:13px; min-height:20px; }
+.status.err { color:#ff8a80; }
+main { display:grid; grid-template-columns:minmax(280px,430px) minmax(300px,1fr) 340px; gap:28px; padding:24px; align-items:start; }
+h2 { margin:0 0 10px; font-size:13px; font-weight:600; color:var(--muted); }
+.grid { display:grid; grid-template-columns:repeat(3,1fr); gap:3px; background:#000; padding:3px; border-radius:8px; }
+.tile { position:relative; aspect-ratio:3/4; overflow:hidden; border:0; padding:0; background:#1a1d24; cursor:pointer; }
+.tile svg { display:block; height:100%; width:auto; margin:0 auto; pointer-events:none; }
+.tile[aria-pressed="true"] { outline:3px solid var(--ui); outline-offset:-3px; z-index:1; }
+.stories { display:grid; grid-template-columns:repeat(3,1fr); gap:14px; }
+.story { aspect-ratio:9/16; overflow:hidden; border:0; padding:0; border-radius:12px; cursor:pointer; background:#1a1d24; }
+.story svg { display:block; width:100%; height:100%; pointer-events:none; }
+.story[aria-pressed="true"] { outline:3px solid var(--ui); outline-offset:2px; }
+.lock { position:absolute; top:6px; right:6px; background:var(--ui); color:var(--ui-ink); font-size:11px; font-weight:700; border-radius:6px; padding:1px 6px; pointer-events:none; }
+.story-wrap { position:relative; }
+.panel { background:var(--panel); border:1px solid var(--line); border-radius:var(--radius); padding:16px; position:sticky; top:84px; max-height:calc(100vh - 104px); overflow:auto; }
+.panel h3 { margin:0 0 2px; font-size:17px; }
+.panel .sub { color:var(--muted); font-size:13px; margin-bottom:14px; }
+label { display:block; font-size:12px; color:var(--muted); margin:12px 0 4px; }
+input[type=text], textarea { width:100%; background:#10131a; border:1px solid var(--line); border-radius:8px; padding:8px 10px; resize:vertical; }
+.thumbs { display:grid; grid-template-columns:repeat(4,1fr); gap:6px; margin-top:6px; }
+.thumbs button { padding:0; border:2px solid transparent; border-radius:6px; overflow:hidden; background:#000; cursor:pointer; aspect-ratio:4/5; }
+.thumbs button[aria-current="true"] { border-color:var(--ui); }
+.thumbs img { width:100%; height:100%; object-fit:cover; display:block; }
+.upload { display:block; margin-top:10px; text-align:center; }
+.upload input { display:none; }
+.report { margin-top:18px; color:var(--muted); font-size:13px; }
+@media (max-width:1100px) { main { grid-template-columns:1fr; } .panel { position:static; max-height:none; } }
+@media (prefers-reduced-motion:no-preference) { .tile, .story { transition:outline-color .12s; } }
+</style>
+</head>
+<body>
+<div class="bar">
+  <h1 id="brandName">Noomoo Studio</h1>
+  <label for="brandSel" class="sr" style="margin:0;position:absolute;left:-9999px">Brand</label>
+  <select id="brandSel" aria-label="Brand"></select>
+  <button class="btn" id="recurate" title="Rebuild the grid, keeping slots whose image you replaced">Re-curate grid</button>
+  <button class="btn" id="reset" title="Discard edits and start from the algorithm's choice">Reset</button>
+  <span class="grow"></span>
+  <span class="status" id="status" role="status" aria-live="polite"></span>
+  <button class="btn primary" id="export">Export kit (.zip)</button>
+</div>
+<main>
+  <section aria-label="Instagram grid"><h2>Grid - 9 posts</h2><div class="grid" id="grid"></div><p class="report" id="report"></p></section>
+  <section aria-label="Stories"><h2>Stories - 9:16</h2><div class="stories" id="stories"></div></section>
+  <aside class="panel" id="panel" aria-label="Inspector"></aside>
+</main>
+<script>
+const $ = (s) => document.querySelector(s);
+let S = null, brand = new URLSearchParams(location.search).get("brand") || "", sel = {kind: "post", index: 0};
+const FIELD_LABEL = {kicker:"Label", headline:"Headline", body:"Body", cta:"Button", quote:"Quote", attribution:"Attribution", title:"Title", details:"Details (one per line)", caption:"Caption"};
+
+async function api(path, opts) {
+  const res = await fetch(`/api/${brand}${path}`, opts);
+  const data = await res.json().catch(() => ({}));
+  if (!res.ok) throw new Error(data.error || res.statusText);
+  return data;
+}
+function say(msg, err) { const el = $("#status"); el.textContent = msg; el.className = "status" + (err ? " err" : ""); }
+async function run(label, fn) { say(label + "..."); try { await fn(); say("Done"); } catch (e) { say(e.message, true); } }
+
+function theme() {
+  const p = S.brand.palette, r = document.documentElement.style;
+  r.setProperty("--ui", p.accent); r.setProperty("--ui-ink", p.ink);
+  $("#brandName").textContent = S.brand.name;
+  const face = new FontFace(S.brand.display_font, `url(/fonts/${S.brand.display_font_file})`);
+  face.load().then((f) => { document.fonts.add(f); $("#brandName").style.fontFamily = `'${S.brand.display_font}', serif`; });
+}
+function slots() { return sel.kind === "post" ? S.posts : S.stories; }
+
+async function paint(slot, host) {
+  // The signature lives on the tile itself, so a rebuilt tile (brand switch) always repaints.
+  const sig = JSON.stringify([slot.image_id, slot.fields, slot.template, slot.bg || ""]);
+  if (host.dataset.sig === sig) return;
+  host.dataset.sig = sig;
+  try {
+    const svg = await (await fetch(`/api/${brand}/svg/${slot.kind}/${slot.index}?v=${S.version}`)).text();
+    if (host.dataset.sig === sig) host.innerHTML = svg;   // ignore stale responses
+  } catch (e) { host.dataset.sig = ""; }
+}
+function ensure(container, items, cls) {
+  if (container.children.length !== items.length) {
+    container.innerHTML = "";
+    items.forEach((s) => {
+      const b = document.createElement("button");
+      b.className = cls; b.type = "button";
+      b.addEventListener("click", () => { sel = {kind: s.kind, index: s.index}; renderSel(); renderPanel(); });
+      container.appendChild(b);
+    });
+  }
+}
+function renderTiles() {
+  ensure($("#grid"), S.posts, "tile"); ensure($("#stories"), S.stories, "story");
+  [["#grid", S.posts], ["#stories", S.stories]].forEach(([id, list]) => list.forEach((slot, i) => {
+    const btn = $(id).children[i];
+    btn.setAttribute("aria-label", `${slot.kind} ${i + 1}: ${slot.alt}`);
+    let lock = btn.querySelector(".lock");
+    if (slot.locked && !lock) { lock = document.createElement("span"); lock.className = "lock"; lock.textContent = "locked"; btn.appendChild(lock); }
+    if (!slot.locked && lock) lock.remove();
+    let host = btn.querySelector(".svg"); if (!host) { host = document.createElement("div"); host.className = "svg"; host.style.height = "100%"; btn.prepend(host); }
+    paint(slot, host);
+  }));
+  renderSel();
+}
+function renderSel() {
+  [...$("#grid").children].forEach((b, i) => b.setAttribute("aria-pressed", sel.kind === "post" && sel.index === i));
+  [...$("#stories").children].forEach((b, i) => b.setAttribute("aria-pressed", sel.kind === "story" && sel.index === i));
+}
+function renderPanel() {
+  const slot = slots()[sel.index];
+  const title = slot.kind === "post" ? `Post ${sel.index + 1}` : `Story ${sel.index + 1}`;
+  const fields = Object.entries(slot.fields).map(([k, v]) => {
+    const long = k === "details" || k === "body" || k === "quote" || k === "headline";
+    const input = long ? `<textarea rows="${k === "details" ? 4 : 3}" data-f="${k}">${esc(v)}</textarea>` : `<input type="text" data-f="${k}" value="${esc(v)}">`;
+    return `<label>${FIELD_LABEL[k] || k}${input}</label>`;
+  }).join("");
+  const thumbs = S.library.map((im) => `<button type="button" data-id="${im.id}" title="${esc(im.alt)}" aria-label="Use ${esc(im.alt)}" ${im.id === slot.image_id ? 'aria-current="true"' : ""}><img loading="lazy" alt="" src="/api/${brand}/thumb/${im.id}"></button>`).join("");
+  $("#panel").innerHTML = `<h3>${title}</h3><div class="sub">${slot.template} layout${slot.locked ? " - image locked" : ""} - ${esc(slot.alt)}</div>
+    <h2>Text (live, editable)</h2>${fields}
+    <label style="margin-top:18px">Replace image</label><div class="thumbs">${thumbs}</div>
+    <label class="btn upload">Upload your own...<input type="file" id="file" accept="image/jpeg,image/png,image/webp"></label>`;
+  $("#panel").querySelectorAll("[data-f]").forEach((el) => {
+    let t; el.addEventListener("input", () => { clearTimeout(t); t = setTimeout(() => run("Saving", async () => { S = await api("/field", post({kind: slot.kind, index: slot.index, name: el.dataset.f, value: el.value})); renderTiles(); }), 350); });
+  });
+  $("#panel").querySelectorAll(".thumbs button").forEach((b) => b.addEventListener("click", () => replace({image_id: b.dataset.id})));
+  $("#file").addEventListener("change", (e) => e.target.files[0] && replace({file: e.target.files[0]}));
+}
+function post(body) { return {method: "POST", headers: {"Content-Type": "application/json"}, body: JSON.stringify(body)}; }
+function esc(s) { return String(s).replace(/[&<>"]/g, (c) => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c])); }
+function replace(extra) {
+  const fd = new FormData(); fd.append("kind", sel.kind); fd.append("index", sel.index);
+  Object.entries(extra).forEach(([k, v]) => fd.append(k, v));
+  return run("Replacing image", async () => { S = await api("/replace", {method: "POST", body: fd}); renderTiles(); renderPanel(); });
+}
+function renderReport() {
+  const r = S.report || {};
+  $("#report").textContent = r.layouts_searched ? `Arrangement: searched ${r.layouts_searched.toLocaleString()} layouts. Energy ${r.energy_best} vs median ${r.energy_median} (lower is better).` : "";
+}
+async function load() {
+  S = await api("/state"); theme();
+  const selEl = $("#brandSel"); selEl.innerHTML = S.brands.map((b) => `<option value="${b}" ${b === S.brand.id ? "selected" : ""}>${b.replace(/_/g, " ")}</option>`).join("");
+  renderTiles(); renderPanel(); renderReport();
+}
+$("#brandSel").addEventListener("change", (e) => { brand = e.target.value; history.replaceState(null, "", `?brand=${brand}`); sel = {kind: "post", index: 0}; $("#grid").innerHTML = ""; $("#stories").innerHTML = ""; run("Loading brand", load); });
+$("#recurate").addEventListener("click", () => run("Re-curating", async () => { S = await api("/curate", post({keep_locked: true})); renderTiles(); renderPanel(); renderReport(); }));
+$("#reset").addEventListener("click", () => run("Resetting", async () => { S = await api("/reset", {method: "POST"}); renderTiles(); renderPanel(); renderReport(); }));
+$("#export").addEventListener("click", () => run("Exporting 12 PNGs + SVG sources", async () => { const r = await api("/export", {method: "POST"}); location.href = r.zip; }));
+(async () => { if (!brand) brand = new URLSearchParams(location.search).get("brand") || "hotel_marelle"; run("Loading", load); })();
+</script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+{
+  "captions": {
+    "sunset-facade": "Sunset hits different here.",
+    "pool-morning": "Pool opens at ten. Be there at nine fifty.",
+    "breakfast-table": "Brunch, but make it last.",
+    "room-linen": "Crisp sheets, zero alarms.",
+    "lobby-arches": "Walk in slow. Leave slower.",
+    "terrace-dusk": "Dinner lights are on.",
+    "cocktail-bar": "Two for one amber hour.",
+    "palm-shadow": "Shade, but make it art.",
+    "spa-stones": "Reset button, found.",
+    "coffee-detail": "Coffee first. Waves second.",
+    "tile-door": "Knock twice, stay all day.",
+    "beach-cabana": "Cabana, claimed.",
+    "courtyard-fountain": "Courtyard cool-down.",
+    "rooftop-night": "Level six after dark."
+  },
+  "fallback_captions": ["{alt}. Tidehouse style.", "More {tag}, please.", "{alt}."],
+  "stories": [
+    {
+      "template": "hero",
+      "prefer": ["exterior", "leisure"],
+      "kicker": "Opening season",
+      "headline": "Salt air. Cold drinks. Loud sunsets.",
+      "body": "Beachfront cabanas and a rooftop bar, open daily from noon.",
+      "cta": "Grab a cabana"
+    },
+    {
+      "template": "quote",
+      "prefer": ["exterior", "drink", "interior"],
+      "quote": "\u201cBest sunset seat in town. We left with a tan and a plan.\u201d",
+      "attribution": "Guest review, five stars"
+    },
+    {
+      "template": "offer",
+      "prefer": ["drink", "food", "exterior"],
+      "kicker": "Happy hour",
+      "title": "Two cocktails, one sunset",
+      "details": ["Daily, 5 to 7 pm", "From \u20ac14 for two", "Rooftop bar, level six"],
+      "cta": "Save a table"
+    }
+  ]
+}

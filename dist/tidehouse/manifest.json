@@ -1,0 +1,139 @@
+{
+  "tool": "noomoo-studio",
+  "version": "1.0.0",
+  "brand": "tidehouse",
+  "brand_name": "Tidehouse",
+  "ai": "off (deterministic copy)",
+  "posts": [
+    {
+      "n": 1,
+      "image": "tile-door",
+      "template": "full",
+      "caption": "Knock twice, stay all day.",
+      "png": "png/posts/post-01.png",
+      "svg": "source/svg/posts/post-01.svg"
+    },
+    {
+      "n": 2,
+      "image": "beach-cabana",
+      "template": "arch",
+      "caption": "Cabana, claimed.",
+      "png": "png/posts/post-02.png",
+      "svg": "source/svg/posts/post-02.svg"
+    },
+    {
+      "n": 3,
+      "image": "cocktail-bar",
+      "template": "full",
+      "caption": "Two for one amber hour.",
+      "png": "png/posts/post-03.png",
+      "svg": "source/svg/posts/post-03.svg"
+    },
+    {
+      "n": 4,
+      "image": "courtyard-fountain",
+      "template": "arch",
+      "caption": "Courtyard cool-down.",
+      "png": "png/posts/post-04.png",
+      "svg": "source/svg/posts/post-04.svg"
+    },
+    {
+      "n": 5,
+      "image": "coffee-detail",
+      "template": "full",
+      "caption": "Coffee first. Waves second.",
+      "png": "png/posts/post-05.png",
+      "svg": "source/svg/posts/post-05.svg"
+    },
+    {
+      "n": 6,
+      "image": "room-linen",
+      "template": "arch",
+      "caption": "Crisp sheets, zero alarms.",
+      "png": "png/posts/post-06.png",
+      "svg": "source/svg/posts/post-06.svg"
+    },
+    {
+      "n": 7,
+      "image": "breakfast-table",
+      "template": "full",
+      "caption": "Brunch, but make it last.",
+      "png": "png/posts/post-07.png",
+      "svg": "source/svg/posts/post-07.svg"
+    },
+    {
+      "n": 8,
+      "image": "spa-stones",
+      "template": "arch",
+      "caption": "Reset button, found.",
+      "png": "png/posts/post-08.png",
+      "svg": "source/svg/posts/post-08.svg"
+    },
+    {
+      "n": 9,
+      "image": "pool-morning",
+      "template": "full",
+      "caption": "Pool opens at ten. Be there at nine fifty.",
+      "png": "png/posts/post-09.png",
+      "svg": "source/svg/posts/post-09.svg"
+    }
+  ],
+  "stories": [
+    {
+      "n": 1,
+      "image": "sunset-facade",
+      "template": "hero",
+      "fields": {
+        "kicker": "Opening season",
+        "headline": "Salt air. Cold drinks. Loud sunsets.",
+        "body": "Beachfront cabanas and a rooftop bar, open daily from noon.",
+        "cta": "Grab a cabana"
+      },
+      "png": "png/stories/story-01.png",
+      "svg": "source/svg/stories/story-01.svg"
+    },
+    {
+      "n": 2,
+      "image": "rooftop-night",
+      "template": "quote",
+      "fields": {
+        "quote": "“Best sunset seat in town. We left with a tan and a plan.”",
+        "attribution": "Guest review, five stars"
+      },
+      "png": "png/stories/story-02.png",
+      "svg": "source/svg/stories/story-02.svg"
+    },
+    {
+      "n": 3,
+      "image": "terrace-dusk",
+      "template": "offer",
+      "fields": {
+        "kicker": "Happy hour",
+        "title": "Two cocktails, one sunset",
+        "details": [
+          "Daily, 5 to 7 pm",
+          "From €14 for two",
+          "Rooftop bar, level six"
+        ],
+        "cta": "Save a table"
+      },
+      "png": "png/stories/story-03.png",
+      "svg": "source/svg/stories/story-03.svg"
+    }
+  ],
+  "sha256": {
+    "png/posts/post-01.png": "7493c30c2bd75c66dfa7822c6d625a26d5e7223a87eb0a4f9d96218c9763b234",
+    "png/posts/post-02.png": "51ddc4810aab2abdde6cd61c09eb7a0d1900c99da77f1e41dc632fbc4e6575b1",
+    "png/posts/post-03.png": "1c18d8b7b32062be08c66a30a9e42dede1c7a7cdcb1a12056ad1a1e3dd9b9f9a",
+    "png/posts/post-04.png": "e7bd6abaed7297f12dafbb5a36ee125a06514c1fcd935d4c65df6640a1018b9e",
+    "png/posts/post-05.png": "6bd4275c64ac680abd16308ec5e2738d5a22c43af29f66c5f13c1f7220e3dd12",
+    "png/posts/post-06.png": "2e025c80dc42ecea153ab1eacb6a9a38622500c9672d49c0dac3ed0a0fc89563",
+    "png/posts/post-07.png": "8d18416266e0a6b8a431d69dba576f7321f831416655412a952857103447922d",
+    "png/posts/post-08.png": "f1a6afcc45055b8e333850ea7939f5154d43366747ab05fc9d5e8b5ef389be44",
+    "png/posts/post-09.png": "8408b6f20ce802ecfe826574d7ff50af060ccf003ea50c3fcf34610a89af3be7",
+    "png/stories/story-01.png": "fe5df5d655d805703490eb29cd4aaafac65b5d014967910b2834ff8ffaefef2d",
+    "png/stories/story-02.png": "1834e4732509fb8c4350620e84e54d3e13e66b9b35db15915d9f2a4c183998e9",
+    "png/stories/story-03.png": "9cda7c23a1dde793c9e8a77c5cac4f8cd07735071713928d61ee0e0a985c14a6",
+    "png/grid-preview.png": "f0af45d75fa1213ba80ee9b514002c879ade37d53897f69232b863388f5fd13d"
+  }
+}

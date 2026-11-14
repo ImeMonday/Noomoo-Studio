@@ -1,0 +1,8 @@
+.venv/
+__pycache__/
+.pytest_cache/
+.cache/
+.env
+workspace/
+# Generated archives are rebuilt by `python -m studio build`; the unzipped dist/ folders are kept as sample output.
+dist/*.zip

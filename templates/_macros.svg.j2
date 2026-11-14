@@ -1,0 +1,16 @@
+{% macro text(b) -%}
+<text id="{{ b.id }}" x="{{ b.x }}" y="{{ b.y }}" font-family="{{ b.family }}" font-weight="{{ b.weight }}" font-size="{{ b.size }}" fill="{{ b.fill }}" text-anchor="{{ b.anchor }}"{% if b.tracking %} letter-spacing="{{ b.tracking }}"{% endif %}>{% for line in b.lines %}<tspan x="{{ b.x }}" dy="{{ 0 if loop.first else b.lh_px }}">{{ line }}</tspan>{% endfor %}</text>
+{%- endmacro %}
+
+{% macro mark(it) -%}
+{%- set s = it.s -%}
+<g id="{{ it.id }}" transform="translate({{ it.x }} {{ it.y }})" fill="{{ it.fill }}">
+{%- if it.shape == 'arch' %}
+<path d="M0,{{ s }} L0,{{ s * 0.5 }} A{{ s * 0.5 }},{{ s * 0.5 }} 0 0 1 {{ s }},{{ s * 0.5 }} L{{ s }},{{ s }} Z"/>
+{%- elif it.shape == 'sun' %}
+<circle cx="{{ s * 0.5 }}" cy="{{ s * 0.5 }}" r="{{ s * 0.3 }}"/><circle cx="{{ s * 0.5 }}" cy="{{ s * 0.5 }}" r="{{ s * 0.46 }}" fill="none" stroke="{{ it.fill }}" stroke-width="{{ s * 0.06 }}"/>
+{%- else %}
+<path d="M0,{{ s * 0.38 }} q{{ s * 0.125 }},{{ -s * 0.24 }} {{ s * 0.25 }},0 t{{ s * 0.25 }},0 t{{ s * 0.25 }},0 t{{ s * 0.25 }},0 M0,{{ s * 0.78 }} q{{ s * 0.125 }},{{ -s * 0.24 }} {{ s * 0.25 }},0 t{{ s * 0.25 }},0 t{{ s * 0.25 }},0 t{{ s * 0.25 }},0" fill="none" stroke="{{ it.fill }}" stroke-width="{{ s * 0.12 }}" stroke-linecap="round"/>
+{%- endif %}
+</g>
+{%- endmacro %}

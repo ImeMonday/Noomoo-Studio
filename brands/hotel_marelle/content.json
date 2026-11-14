@@ -1,0 +1,43 @@
+{
+  "captions": {
+    "sunset-facade": "Golden hour on the east wing.",
+    "pool-morning": "First swim, last coffee.",
+    "breakfast-table": "Breakfast runs until we say so.",
+    "room-linen": "Linen, light, nowhere to be.",
+    "lobby-arches": "Every arch leads somewhere slower.",
+    "terrace-dusk": "The terrace after the sun goes.",
+    "cocktail-bar": "One amber hour at the bar.",
+    "palm-shadow": "Palm shadows do the decorating.",
+    "spa-stones": "Stacked, steady, still.",
+    "coffee-detail": "Flat white, full attention.",
+    "tile-door": "The coral door is always open.",
+    "beach-cabana": "Cabana four is yours till dusk.",
+    "courtyard-fountain": "Courtyard noon, fountain on.",
+    "rooftop-night": "Rooftop, lights on, plans off."
+  },
+  "fallback_captions": ["{alt}, at Marelle.", "A slower look at {tag}.", "{alt}."],
+  "stories": [
+    {
+      "template": "hero",
+      "prefer": ["exterior", "leisure"],
+      "kicker": "Autumn reopening",
+      "headline": "The sea is still warm. Come back to Marelle.",
+      "body": "Late-season rooms with breakfast on the terrace, until 30 November.",
+      "cta": "Book your weekend"
+    },
+    {
+      "template": "quote",
+      "prefer": ["interior", "wellness", "detail"],
+      "quote": "\u201cWe came for two nights and stayed for five.\u201d",
+      "attribution": "Guest note, room 12"
+    },
+    {
+      "template": "offer",
+      "prefer": ["food", "drink", "leisure"],
+      "kicker": "Weekend offer",
+      "title": "Two nights, breakfast on us",
+      "details": ["Friday to Sunday, all November", "Rooms from \u20ac189 a night", "Late checkout until 2 pm"],
+      "cta": "Reserve now"
+    }
+  ]
+}

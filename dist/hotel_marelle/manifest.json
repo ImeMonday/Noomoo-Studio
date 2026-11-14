@@ -1,0 +1,139 @@
+{
+  "tool": "noomoo-studio",
+  "version": "1.0.0",
+  "brand": "hotel_marelle",
+  "brand_name": "Hôtel Marelle",
+  "ai": "off (deterministic copy)",
+  "posts": [
+    {
+      "n": 1,
+      "image": "tile-door",
+      "template": "full",
+      "caption": "The coral door is always open.",
+      "png": "png/posts/post-01.png",
+      "svg": "source/svg/posts/post-01.svg"
+    },
+    {
+      "n": 2,
+      "image": "sunset-facade",
+      "template": "arch",
+      "caption": "Golden hour on the east wing.",
+      "png": "png/posts/post-02.png",
+      "svg": "source/svg/posts/post-02.svg"
+    },
+    {
+      "n": 3,
+      "image": "cocktail-bar",
+      "template": "full",
+      "caption": "One amber hour at the bar.",
+      "png": "png/posts/post-03.png",
+      "svg": "source/svg/posts/post-03.svg"
+    },
+    {
+      "n": 4,
+      "image": "courtyard-fountain",
+      "template": "arch",
+      "caption": "Courtyard noon, fountain on.",
+      "png": "png/posts/post-04.png",
+      "svg": "source/svg/posts/post-04.svg"
+    },
+    {
+      "n": 5,
+      "image": "room-linen",
+      "template": "full",
+      "caption": "Linen, light, nowhere to be.",
+      "png": "png/posts/post-05.png",
+      "svg": "source/svg/posts/post-05.svg"
+    },
+    {
+      "n": 6,
+      "image": "coffee-detail",
+      "template": "arch",
+      "caption": "Flat white, full attention.",
+      "png": "png/posts/post-06.png",
+      "svg": "source/svg/posts/post-06.svg"
+    },
+    {
+      "n": 7,
+      "image": "breakfast-table",
+      "template": "full",
+      "caption": "Breakfast runs until we say so.",
+      "png": "png/posts/post-07.png",
+      "svg": "source/svg/posts/post-07.svg"
+    },
+    {
+      "n": 8,
+      "image": "pool-morning",
+      "template": "arch",
+      "caption": "First swim, last coffee.",
+      "png": "png/posts/post-08.png",
+      "svg": "source/svg/posts/post-08.svg"
+    },
+    {
+      "n": 9,
+      "image": "spa-stones",
+      "template": "full",
+      "caption": "Stacked, steady, still.",
+      "png": "png/posts/post-09.png",
+      "svg": "source/svg/posts/post-09.svg"
+    }
+  ],
+  "stories": [
+    {
+      "n": 1,
+      "image": "beach-cabana",
+      "template": "hero",
+      "fields": {
+        "kicker": "Autumn reopening",
+        "headline": "The sea is still warm. Come back to Marelle.",
+        "body": "Late-season rooms with breakfast on the terrace, until 30 November.",
+        "cta": "Book your weekend"
+      },
+      "png": "png/stories/story-01.png",
+      "svg": "source/svg/stories/story-01.svg"
+    },
+    {
+      "n": 2,
+      "image": "palm-shadow",
+      "template": "quote",
+      "fields": {
+        "quote": "“We came for two nights and stayed for five.”",
+        "attribution": "Guest note, room 12"
+      },
+      "png": "png/stories/story-02.png",
+      "svg": "source/svg/stories/story-02.svg"
+    },
+    {
+      "n": 3,
+      "image": "terrace-dusk",
+      "template": "offer",
+      "fields": {
+        "kicker": "Weekend offer",
+        "title": "Two nights, breakfast on us",
+        "details": [
+          "Friday to Sunday, all November",
+          "Rooms from €189 a night",
+          "Late checkout until 2 pm"
+        ],
+        "cta": "Reserve now"
+      },
+      "png": "png/stories/story-03.png",
+      "svg": "source/svg/stories/story-03.svg"
+    }
+  ],
+  "sha256": {
+    "png/posts/post-01.png": "27d14f6dc6bb454ded04605700efd2134598c44a4335374246f77e3990bad1e6",
+    "png/posts/post-02.png": "32db741c05ceb6020e5fabf84279c3294fb085b21219e9797661c683a7aa8d74",
+    "png/posts/post-03.png": "6fb3234b1d022c5ef01c53237464c0001ba3b7a9c123ecef701fb9c2acad1fe9",
+    "png/posts/post-04.png": "73e1ff5cf54687b868afd1c19e3d98cb743b2e490e0c1611834240333f0f5097",
+    "png/posts/post-05.png": "24fce505e128ad466241f3b0ae6ec084b74f150223e1356938f9a8990be750d2",
+    "png/posts/post-06.png": "d34df610a31ca240366f7ea29f58845051ff3ba0f7352b0d921643b200390fef",
+    "png/posts/post-07.png": "99db72713cac4227d5eeef31ffa26626f0f618108f66cfc2b6de5b6177fbf273",
+    "png/posts/post-08.png": "34d12f69ef8b3feae526f7a21439ef19d841c34322d681dbb397d3ecdc2ca64a",
+    "png/posts/post-09.png": "81eb48cfcb485b501ca13afeb0f980eb451aeadce7be6d8e9dabeb6dfd40187a",
+    "png/stories/story-01.png": "c335ab84c8859d2e9203da056cb092b0ac460a636f9b9ebb68efc27e13ff82a3",
+    "png/stories/story-02.png": "84ec3f2df4561205a977f1d6b279913450fbbf02169c27f4ea40e35950ba39b8",
+    "png/stories/story-03.png": "e6c185cccc9997c310929ba0fd199a0119a3b8ee2528ee8a832cddc86b3880c2",
+    "png/grid-preview.png": "28709e1d8efdcb72960b7833ffe664971da6f612f6fc2f83be3c66c2e3ce2b84"
+  }
+}

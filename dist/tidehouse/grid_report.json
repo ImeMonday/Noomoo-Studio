@@ -1,0 +1,62 @@
+{
+  "energy_best": 4.526,
+  "energy_median": 7.617,
+  "energy_worst": 11.173,
+  "layouts_searched": 362880,
+  "cells": [
+    {
+      "cell": 0,
+      "image": "tile-door",
+      "category": "detail",
+      "template": "full"
+    },
+    {
+      "cell": 1,
+      "image": "beach-cabana",
+      "category": "exterior",
+      "template": "arch"
+    },
+    {
+      "cell": 2,
+      "image": "cocktail-bar",
+      "category": "drink",
+      "template": "full"
+    },
+    {
+      "cell": 3,
+      "image": "courtyard-fountain",
+      "category": "exterior",
+      "template": "arch"
+    },
+    {
+      "cell": 4,
+      "image": "coffee-detail",
+      "category": "food",
+      "template": "full"
+    },
+    {
+      "cell": 5,
+      "image": "room-linen",
+      "category": "interior",
+      "template": "arch"
+    },
+    {
+      "cell": 6,
+      "image": "breakfast-table",
+      "category": "food",
+      "template": "full"
+    },
+    {
+      "cell": 7,
+      "image": "spa-stones",
+      "category": "wellness",
+      "template": "arch"
+    },
+    {
+      "cell": 8,
+      "image": "pool-morning",
+      "category": "leisure",
+      "template": "full"
+    }
+  ]
+}
